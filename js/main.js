@@ -11,7 +11,7 @@ stampa un messaggio appropriato sull’esito del controllo, utilizzando un ciclo
 Non è necessario provvedere alla validazione delle email
 */
 
-/* // Lista di mail
+// Lista di mail
 const guestsList = ["mail1", "mail2"];
 
 // Chiedo all'utente la sua mail
@@ -31,8 +31,9 @@ for (i = 0; i < guestsList.length; i++) {
 }
 
 console.log("Mail trovata: ", mailPresent);
-alert(message); */
+alert(message);
 
+console.log("-------------------------------------");
 /*
 ! Gioco dei dadi
 
@@ -55,19 +56,19 @@ const computerNumber = Math.floor(
 );
 
 // Dichiaro variabile messaggio per alert
-let message = `Il Computer ha vinto! \nNumero Utente: ${userNumber}  |  Numero Computer: ${computerNumber}`;
+let messageGame = `Il Computer ha vinto! \nNumero Utente: ${userNumber}  |  Numero Computer: ${computerNumber}`;
 let userWin = false;
 
 // Controllo quale numero è più alto e comunico il vincitore
 if (userNumber === computerNumber) {
-  message = `Non c'è un vincitore! \nNumero Utente: ${userNumber}  |  Numero Computer: ${computerNumber}`;
+  messageGame = `Non c'è un vincitore! \nNumero Utente: ${userNumber}  |  Numero Computer: ${computerNumber}`;
   userWin = "Parità!";
 } else if (userNumber > computerNumber) {
-  message = `L'utente ha vinto! \nNumero Utente: ${userNumber}  |  Numero Computer: ${computerNumber}`;
+  messageGame = `L'utente ha vinto! \nNumero Utente: ${userNumber}  |  Numero Computer: ${computerNumber}`;
   userWin = true;
 }
 
 console.log("userNumber: ", userNumber);
 console.log("computerNumber: ", computerNumber);
 console.log("User Win: ", userWin);
-alert(message);
+alert(messageGame);
