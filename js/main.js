@@ -11,7 +11,7 @@ stampa un messaggio appropriato sull’esito del controllo, utilizzando un ciclo
 Non è necessario provvedere alla validazione delle email
 */
 
-// Lista di mail
+/* // Lista di mail
 const guestsList = ["mail1", "mail2"];
 
 // Chiedo all'utente la sua mail
@@ -31,15 +31,43 @@ for (i = 0; i < guestsList.length; i++) {
 }
 
 console.log("Mail trovata: ", mailPresent);
-alert(message);
+alert(message); */
 
 /*
-
-
 ! Gioco dei dadi
 
 Generare un numero random da 1 a 6, sia per il giocatore sia per il computer.
 Stabilire il vincitore, in base a chi fa il punteggio più alto.
-
-
 */
+
+// Dichiaro numero minimo
+const numMin = 1;
+
+// Dichiaro numero massimo
+const numMax = 6;
+
+// Dichiaro variabile numero utente
+const userNumber = Math.floor(Math.random() * (numMax - numMin + 1) + numMin);
+
+// Dichiaro variabile numero computer
+const computerNumber = Math.floor(
+  Math.random() * (numMax - numMin + 1) + numMin
+);
+
+// Dichiaro variabile messaggio per alert
+let message = `Il Computer ha vinto! \nNumero Utente: ${userNumber}  |  Numero Computer: ${computerNumber}`;
+let userWin = false;
+
+// Controllo quale numero è più alto e comunico il vincitore
+if (userNumber === computerNumber) {
+  message = `Non c'è un vincitore! \nNumero Utente: ${userNumber}  |  Numero Computer: ${computerNumber}`;
+  userWin = "Parità!";
+} else if (userNumber > computerNumber) {
+  message = `L'utente ha vinto! \nNumero Utente: ${userNumber}  |  Numero Computer: ${computerNumber}`;
+  userWin = true;
+}
+
+console.log("userNumber: ", userNumber);
+console.log("computerNumber: ", computerNumber);
+console.log("User Win: ", userWin);
+alert(message);
