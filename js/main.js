@@ -11,6 +11,8 @@ stampa un messaggio appropriato sull’esito del controllo, utilizzando un ciclo
 Non è necessario provvedere alla validazione delle email
 */
 
+/* 
+
 // Lista di mail
 const guestsList = ["mail1", "mail2"];
 
@@ -33,7 +35,10 @@ for (i = 0; i < guestsList.length; i++) {
 console.log("Mail trovata: ", mailPresent);
 alert(message);
 
-console.log("-------------------------------------");
+console.log("-------------------------------------"); 
+
+*/
+/* --------------------------------------------------------------------------------------------------- */
 /*
 ! Gioco dei dadi
 
@@ -48,27 +53,53 @@ const numMin = 1;
 const numMax = 6;
 
 // Dichiaro variabile numero utente
-const userNumber = Math.floor(Math.random() * (numMax - numMin + 1) + numMin);
+let userNumber;
 
-// Dichiaro variabile numero computer
-const computerNumber = Math.floor(
-  Math.random() * (numMax - numMin + 1) + numMin
-);
+//FINCHE' l'utente non scrive STOP
+while (userNumber !== "STOP") {
+  //L'utente scrive nel prompt
+  userNumber = prompt("Inserisci un numero da 1 a 6!", "STOP");
 
-// Dichiaro variabile messaggio per alert
-let messageGame = `Il Computer ha vinto! \nNumero Utente: ${userNumber}  |  Numero Computer: ${computerNumber}`;
-let userWin = false;
+  // SE non scrive STOP
+  if (userNumber !== "STOP") {
+    // Il numero scritto nel prompt viene parsato
+    userNumber = parseInt(userNumber);
 
-// Controllo quale numero è più alto e comunico il vincitore
-if (userNumber === computerNumber) {
-  messageGame = `Non c'è un vincitore! \nNumero Utente: ${userNumber}  |  Numero Computer: ${computerNumber}`;
-  userWin = "Parità!";
-} else if (userNumber > computerNumber) {
-  messageGame = `L'utente ha vinto! \nNumero Utente: ${userNumber}  |  Numero Computer: ${computerNumber}`;
-  userWin = true;
+    // Viene generato un numero randomico per il computer
+    const computerNumber = Math.floor(
+      Math.random() * (numMax - numMin + 1) + numMin
+    );
+
+    // Dichiarate le variabili per Alert e Log
+    let messageGame = `Il Computer ha vinto! \nNumero Utente: ${userNumber}  |  Numero Computer: ${computerNumber}`;
+    let userWin = false;
+
+    // SE il numero dell'utente è uguale a quello del computer
+    if (userNumber === computerNumber) {
+      // Il risultato è parità e non vince nessuno
+      userWin = "Parità!";
+      messageGame = `Non c'è un vincitore! \nNumero Utente: ${userNumber}  |  Numero Computer: ${computerNumber}`;
+    }
+
+    // ALTRIMENTI SE il numero dell'utente è più alto del computer
+    else if (userNumber > computerNumber) {
+      // Viene comunicata la vittoria dell'utente e la variabile userWin diventa true
+      messageGame = `L'utente ha vinto! \nNumero Utente: ${userNumber}  |  Numero Computer: ${computerNumber}`;
+      userWin = true;
+    }
+
+    // Viene creato un log del numero utente e del numero computer
+    console.log("userNumber: ", userNumber);
+    console.log("computerNumber: ", computerNumber);
+
+    // Viene creato un booleano per verificare se l'utente ha vinto o perso
+    console.log("User Win: ", userWin);
+
+    // Viene comunicato all'utente l'esito della partita
+    alert(messageGame);
+  } else {
+    // Viene comunicata l'interruzione del gioco dopo la scritta "STOP"
+    console.log("Gioco interrotto | (STOP)");
+    alert(`Hai Scritto "STOP" Il gioco è stato interrotto!`);
+  }
 }
-
-console.log("userNumber: ", userNumber);
-console.log("computerNumber: ", computerNumber);
-console.log("User Win: ", userWin);
-alert(messageGame);
